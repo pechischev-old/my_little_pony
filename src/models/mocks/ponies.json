@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Иуарраквакс",
+        "color": 1,
+        "kind": 1,
+        "price": 19.99,
+        "is_new": false
+    },
+    {
+        "name": "Твайлайт",
+        "color": 2,
+        "kind": 2,
+        "price": 9.55,
+        "is_new": false
+    },
+    {
+        "name": "Джек",
+        "color": 3,
+        "kind": 3,
+        "price": 50.99,
+        "is_new": false
+    },
+    {
+        "name": "Клаус",
+        "color": 4,
+        "kind": 4,
+        "price": 70,
+        "is_new": false
+    }
+]

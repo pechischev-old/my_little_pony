@@ -1,0 +1,19 @@
+.pagination {
+    display: inline-flex;
+    list-style: none;
+
+    &__item {
+        margin: 0 4px;
+
+        &[data-disabled=true] {
+            opacity: 0.4;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
+    }
+}
