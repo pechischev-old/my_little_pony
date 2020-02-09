@@ -12,7 +12,7 @@ export class BasketService {
         this.repository.remove(id);
     }
 
-    getListData(params: object): any {
-        return this.repository.matching(params);
+    getItems() {
+        return this.repository.getItems();
     }
 }

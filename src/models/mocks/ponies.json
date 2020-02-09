@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -7,6 +8,7 @@
         "isNew": false
     },
     {
+        "id": 2,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
@@ -14,6 +16,7 @@
         "isNew": false
     },
     {
+        "id": 3,
         "name": "Джек",
         "color": 3,
         "kind": 3,
@@ -21,12 +24,15 @@
         "isNew": false
     },
     {
+        "id": 4,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
         "isNew": false
-    },{
+    },
+    {
+        "id": 5,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -34,6 +40,7 @@
         "isNew": false
     },
     {
+        "id": 6,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
@@ -41,6 +48,7 @@
         "isNew": false
     },
     {
+        "id": 7,
         "name": "Джек",
         "color": 3,
         "kind": 3,
@@ -48,12 +56,15 @@
         "isNew": false
     },
     {
+        "id": 8,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
         "isNew": false
-    },{
+    },
+    {
+        "id": 9,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -61,6 +72,7 @@
         "isNew": false
     },
     {
+        "id": 10,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
@@ -68,6 +80,7 @@
         "isNew": false
     },
     {
+        "id": 11,
         "name": "Джек",
         "color": 3,
         "kind": 3,
@@ -75,12 +88,15 @@
         "isNew": false
     },
     {
+        "id": 12,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
         "isNew": false
-    },{
+    },
+    {
+        "id": 13,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -88,6 +104,7 @@
         "isNew": false
     },
     {
+        "id": 14,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
@@ -95,6 +112,7 @@
         "isNew": false
     },
     {
+        "id": 15,
         "name": "Джек",
         "color": 3,
         "kind": 3,
@@ -102,12 +120,15 @@
         "isNew": false
     },
     {
+        "id": 16,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
         "isNew": false
-    },{
+    },
+    {
+        "id": 17,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -115,6 +136,7 @@
         "isNew": false
     },
     {
+        "id": 18,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
@@ -122,6 +144,7 @@
         "isNew": false
     },
     {
+        "id": 19,
         "name": "Джек",
         "color": 3,
         "kind": 3,
@@ -129,12 +152,15 @@
         "isNew": false
     },
     {
+        "id": 20,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
         "isNew": false
-    },{
+    },
+    {
+        "id": 21,
         "name": "Иуарраквакс",
         "color": 1,
         "kind": 1,
@@ -142,24 +168,27 @@
         "isNew": false
     },
     {
+        "id": 22,
         "name": "Твайлайт",
         "color": 2,
         "kind": 2,
         "price": 9.55,
-        "isNew": false
+        "isNew": true
     },
     {
+        "id": 23,
         "name": "Джек",
         "color": 3,
         "kind": 3,
         "price": 50.99,
-        "isNew": false
+        "isNew": true
     },
     {
+        "id": 24,
         "name": "Клаус",
         "color": 4,
         "kind": 4,
         "price": 70,
-        "isNew": false
+        "isNew": true
     }
 ]

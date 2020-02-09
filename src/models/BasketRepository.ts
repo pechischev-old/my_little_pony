@@ -21,15 +21,12 @@ export class BasketRepository {
         if (!this.getItem(id)) {
             return;
         }
-        this.items = this.items.filter(item => item.id === id);
+        this.items = this.items.filter(item => item.id !== id);
         this.save();
     }
 
-    matching({limit, page}: any): any {
-        return {
-            items: this.items.slice(page, page + limit),
-            count: this.items.length,
-        };
+    getItems(): IListItem[] {
+        return this.items;
     }
 
     getItem(id: number) {

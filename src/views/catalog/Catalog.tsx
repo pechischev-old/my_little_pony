@@ -5,8 +5,14 @@ import { IListItem } from '../../interfaces';
 import { List, ListItem, Pagination } from '../../components';
 import { ITEMS_LIMIT } from '../../config';
 
-export const Catalog: FC<any> = ({filters}) => {
-    const {catalogService, basketService} = useContext(AppContext);
+interface ICatalogProps {
+    filters: object;
+
+    appendToBasket(item: IListItem): void;
+}
+
+export const Catalog: FC<ICatalogProps> = ({filters, appendToBasket}) => {
+    const {catalogService} = useContext(AppContext);
 
     const [content, setContent] = useState<ICatalog<IListItem>>({items: [], count: 0});
     const [page, setPage] = useState(0);
@@ -19,20 +25,26 @@ export const Catalog: FC<any> = ({filters}) => {
 
     return (
         <div className={'catalog'}>
-            <List
-                items={items}
-                render={(item: IListItem) =>
+            {!items.length
+                ? 'Извините, по вашему запросу ничего не найдено' : (
                     <Fragment>
-                        <ListItem item={item}/>
-                        <div onClick={() => basketService.append(item)}><strong>В корзину</strong></div>
+                        <List
+                            items={items}
+                            render={(item: IListItem) =>
+                                <Fragment>
+                                    <ListItem item={item}/>
+                                    <div onClick={() => appendToBasket(item)}><strong>В корзину</strong></div>
+                                </Fragment>
+                            }
+                        />
+                        < Pagination
+                            step={ITEMS_LIMIT}
+                            totalCount={count}
+                            onChangePage={setPage}
+                        />
                     </Fragment>
-                }
-            />
-            <Pagination
-                step={ITEMS_LIMIT}
-                totalCount={count}
-                onChangePage={setPage}
-            />
+                )
+            }
         </div>
     );
 };

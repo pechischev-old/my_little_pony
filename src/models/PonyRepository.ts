@@ -5,10 +5,7 @@ export class PonyRepository {
     private items: IListItem[] = [];
 
     constructor() {
-        this.items = ponies.map((pony: Omit<IListItem, 'id'>) => ({
-            id: Math.ceil(Math.random() * 1000).toString(),
-            ...pony
-        }));
+        this.items = ponies;
     }
 
     matching(params: any, filters: any = {}): any { // TODO: избавиться от any
