@@ -41,7 +41,7 @@ export const App: FC = () => {
 
     return (
         <div className='App'>
-            <AppProvider value={{basketService, catalogService}}>
+            <AppProvider value={{catalogService}}>
                 <header>
                     <button disabled={!hasBasketItems} onClick={() => changeBasketModal(true)}>Корзина {basketItems.length} шт.</button>
                     <button onClick={() => changeFilterModal(true)}>Фильтры</button>

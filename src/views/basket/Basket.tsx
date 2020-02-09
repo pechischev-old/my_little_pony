@@ -1,8 +1,7 @@
 import React, { FC, Fragment, useEffect, useState } from 'react';
 import { List, ListItem, Pagination } from '../../components';
-import { IListItem } from '../../interfaces';
+import { IListItem, IListData } from '../../interfaces';
 import { ITEMS_LIMIT } from '../../config';
-import { IListData } from '../../interfaces/IListData';
 
 interface IBasketProps {
     items: IListItem[];
