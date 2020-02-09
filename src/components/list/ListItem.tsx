@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { IListItem } from '../../interfaces';
 
-interface ICatalogItem {
+interface IListItemProps {
     item: IListItem
 }
 
-export const ListItem: FC<ICatalogItem> = ({item}) => {
+export const ListItem: FC<IListItemProps> = ({item}) => {
     const {name, isNew, color, price, kind} = item;
     const label = isNew ? 'Новый' : ' ';
     return (

@@ -1,16 +1,15 @@
 import { Form } from 'react-final-form';
 import React, { FC } from 'react';
-import { IItem } from '../../interfaces';
+import { IFilterParams, IItem } from '../../interfaces';
 import { RadioField, RangeField, SelectField } from '../../components/fields';
 
 interface IFilterProps {
     colors: IItem[];
     kinds: IItem[];
 
-    onSubmit(data: object): void;
+    onSubmit(data: IFilterParams): void;
 }
 
-// TODO: коневертить данные со строк в числа
 export const Filter: FC<IFilterProps> = ({colors, kinds, onSubmit}) => {
     return (
         <Form

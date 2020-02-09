@@ -1,8 +1,8 @@
 export interface IListItem {
     id: number;
     name: string;
-    color: number;
-    kind: number;
+    color?: string;
+    kind?: string;
     price: number;
     isNew: boolean;
 }

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IField } from './IField';
+import { IFieldProps } from './IField';
 import { Field } from 'react-final-form';
 
 interface IRadioValue {
@@ -7,11 +7,11 @@ interface IRadioValue {
     value: number | string | undefined;
 }
 
-interface IRadioField extends IField<IRadioValue> {
+interface IRadioFieldProps extends IFieldProps<IRadioValue> {
     values: IRadioValue[];
 }
 
-export const RadioField: FC<IRadioField> = ({name, values = [], label}) => (
+export const RadioField: FC<IRadioFieldProps> = ({name, values = [], label}) => (
     <div className={'field radio-field'}>
         <label>{label}</label>
         <div>

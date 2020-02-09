@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { IField } from './IField';
+import { IFieldProps } from './IField';
 import { IItem } from '../../interfaces';
 import { Field } from 'react-final-form';
 
-interface ISelectField extends IField<number | string> {
+interface ISelectFieldProps extends IFieldProps<number | string> {
     options: IItem[]
 }
 
-export const SelectField: FC<ISelectField> = ({options = [], name, label, placeholder, type, ...rest}) => (
+export const SelectField: FC<ISelectFieldProps> = ({options = [], name, label, placeholder, type, ...rest}) => (
     <div className={'field select-field'}>
         <label>{label}</label>
         <Field

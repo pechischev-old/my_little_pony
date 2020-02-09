@@ -1,16 +1,16 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Basket, Catalog, Filter } from './views';
 import { BasketService, CatalogService } from './services';
 import { AppProvider } from './AppContext';
 import { Modal } from './components/modal';
-import { IListItem } from './interfaces';
+import { IFilterParams, IListItem } from './interfaces';
 import { Alert, EAlertType } from './components/alert';
 
 const catalogService = new CatalogService();
 const basketService = new BasketService();
 
 export const App: FC = () => {
-    const [filters, setFilters] = useState({});
+    const [filters, setFilters] = useState<IFilterParams>({} as IFilterParams);
     const [basketModal, changeBasketModal] = useState(false);
     const [filterModal, changeFilterModal] = useState(false);
     const [basketItems, changeBasketItem] = useState<IListItem[]>(basketService.getItems());

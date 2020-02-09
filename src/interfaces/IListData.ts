@@ -1,4 +1,4 @@
-export interface ICatalog<T> {
+export interface IListData<T> {
     items: T[];
     count: number;
 }

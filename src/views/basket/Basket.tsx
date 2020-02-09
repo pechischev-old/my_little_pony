@@ -2,7 +2,7 @@ import React, { FC, Fragment, useEffect, useState } from 'react';
 import { List, ListItem, Pagination } from '../../components';
 import { IListItem } from '../../interfaces';
 import { ITEMS_LIMIT } from '../../config';
-import { ICatalog } from '../../interfaces/ICatalog';
+import { IListData } from '../../interfaces/IListData';
 
 interface IBasketProps {
     items: IListItem[];
@@ -12,7 +12,7 @@ interface IBasketProps {
 
 export const Basket: FC<IBasketProps> = ({removeFromBasket, items}) => {
     const [page, setPage] = useState(0);
-    const [content, setContent] = useState<ICatalog<IListItem>>({items, count: 0});
+    const [content, setContent] = useState<IListData<IListItem>>({items, count: 0});
 
     useEffect(() => {
         setContent({items: items.slice(page, page + ITEMS_LIMIT), count: items.length});

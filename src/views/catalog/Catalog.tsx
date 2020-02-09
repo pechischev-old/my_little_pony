@@ -1,12 +1,11 @@
 import React, { FC, Fragment, useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../AppContext';
-import { ICatalog } from '../../interfaces/ICatalog';
-import { IListItem } from '../../interfaces';
+import { IListItem, IListData, IFilterParams } from '../../interfaces';
 import { List, ListItem, Pagination } from '../../components';
 import { ITEMS_LIMIT } from '../../config';
 
 interface ICatalogProps {
-    filters: object;
+    filters: IFilterParams;
 
     appendToBasket(item: IListItem): void;
 }
@@ -14,7 +13,7 @@ interface ICatalogProps {
 export const Catalog: FC<ICatalogProps> = ({filters, appendToBasket}) => {
     const {catalogService} = useContext(AppContext);
 
-    const [content, setContent] = useState<ICatalog<IListItem>>({items: [], count: 0});
+    const [content, setContent] = useState<IListData<IListItem>>({items: [], count: 0});
     const [page, setPage] = useState(0);
 
     const {items, count} = content;
