@@ -1,17 +1,21 @@
 import { PonyRepository, ColorRepository, KindRepository } from "../models";
 import { ICatalog } from "../entities/ICatalog";
-import { IPony } from "../entities";
+import { IItem, IPony } from "../entities";
 
 export class CatalogService {
     private ponyRepository = new PonyRepository();
     private colorRepository = new ColorRepository();
     private kindRepository = new KindRepository();
 
-    getContent(): ICatalog<IPony> { // TODO: добавить учет фильтров + заменить хранидище на запросы с моковыми данными
-        const items = this.ponyRepository.getItems();
-        return {
-            items,
-            count: items.length
-        };
+    getListData(params: object, filters: object): ICatalog<IPony> {
+        return this.ponyRepository.matching(params, filters);
+    }
+
+    getColors(): IItem[] {
+        return this.colorRepository.getItems();
+    }
+
+    getKinds(): IItem[] {
+        return this.kindRepository.getItems();
     }
 }

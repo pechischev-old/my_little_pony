@@ -9,11 +9,24 @@ export class PonyRepository {
         this.items = ponies;
     }
 
-    load(items: IPony[]) {
-
+    matching(params: any, filters: any = {}): any { // TODO: избавиться от any
+        const { limit, page } = params;
+        const items = this.items.filter((item) => this.filterItems(item, filters));
+        return {
+            items: items.slice(page, page + limit),
+            count: items.length
+        };
     }
 
-    getItems(): IPony[] {
-        return this.items;
+    private filterItems(item: IPony, filters: any): boolean {
+        const {price = {}, color, kind, isNew} = filters;
+        const {from = 0, to = Infinity} = price;
+
+        const containPrice = parseFloat(from) <= item.price && item.price <= parseFloat(to);
+        const hasColor = !!color ? parseFloat(color) === item.color : true;
+        const hasKind = !!kind ? parseFloat(kind) === item.kind : true;
+        const hasNewStatus = !!isNew ? !!+isNew == item.isNew : true;
+
+        return containPrice && hasColor && hasKind && hasNewStatus;
     }
 }

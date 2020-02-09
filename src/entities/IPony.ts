@@ -1,7 +1,7 @@
 export interface IPony {
     name: string;
-    color: string;
-    kind: string;
+    color: number;
+    kind: number;
     price: number;
     isNew: boolean;
 }
