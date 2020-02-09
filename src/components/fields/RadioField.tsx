@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { IField } from "./IField";
-import { Field } from "react-final-form";
+import React, { FC } from 'react';
+import { IField } from './IField';
+import { Field } from 'react-final-form';
 
 interface IRadioValue {
     label: string;
@@ -20,8 +20,8 @@ export const RadioField: FC<IRadioField> = ({name, values = [], label}) => (
                     <label key={index}>
                         <Field
                             name={name}
-                            component="input"
-                            type="radio"
+                            component='input'
+                            type='radio'
                             value={value}
                         />{' '}
                         {label}

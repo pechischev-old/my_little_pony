@@ -1,7 +1,7 @@
-import { Form } from "react-final-form";
-import React, { FC } from "react";
-import { IItem } from "../../entities";
-import { RadioField, RangeField, SelectField } from "../../components/fields";
+import { Form } from 'react-final-form';
+import React, { FC } from 'react';
+import { IItem } from '../../interfaces';
+import { RadioField, RangeField, SelectField } from '../../components/fields';
 
 interface IFilterProps {
     colors: IItem[];
@@ -35,11 +35,11 @@ export const Filter: FC<IFilterProps> = ({colors, kinds, onSubmit}) => {
                     />
 
                     <div>
-                        <button type="submit" disabled={submitting || pristine}>
+                        <button type='submit' disabled={submitting || pristine}>
                             Найти
                         </button>
                         <button
-                            type="button"
+                            type='button'
                             onClick={() => {
                                 form.reset();
                                 handleSubmit();

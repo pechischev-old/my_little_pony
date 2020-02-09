@@ -1,12 +1,14 @@
-import { IPony } from "../entities";
+import { IListItem } from '../interfaces';
 const ponies = require('./mocks/ponies.json');
 
 export class PonyRepository {
-
-    private items: IPony[] = [];
+    private items: IListItem[] = [];
 
     constructor() {
-        this.items = ponies;
+        this.items = ponies.map((pony: Omit<IListItem, 'id'>) => ({
+            id: Math.ceil(Math.random() * 1000).toString(),
+            ...pony
+        }));
     }
 
     matching(params: any, filters: any = {}): any { // TODO: избавиться от any
@@ -18,14 +20,14 @@ export class PonyRepository {
         };
     }
 
-    private filterItems(item: IPony, filters: any): boolean {
+    private filterItems(item: IListItem, filters: any): boolean {
         const {price = {}, color, kind, isNew} = filters;
         const {from = 0, to = Infinity} = price;
 
         const containPrice = parseFloat(from) <= item.price && item.price <= parseFloat(to);
         const hasColor = !!color ? parseFloat(color) === item.color : true;
         const hasKind = !!kind ? parseFloat(kind) === item.kind : true;
-        const hasNewStatus = !!isNew ? !!+isNew == item.isNew : true;
+        const hasNewStatus = !!isNew ? !!+isNew === item.isNew : true;
 
         return containPrice && hasColor && hasKind && hasNewStatus;
     }

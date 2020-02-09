@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { IPony } from "../../entities";
+import React, { FC } from 'react';
+import { IListItem } from '../../interfaces';
 
 interface ICatalogItem {
-    item: IPony
+    item: IListItem
 }
 
-export const CatalogItem: FC<ICatalogItem> = ({item}) => {
+export const ListItem: FC<ICatalogItem> = ({item}) => {
     const {name, isNew, color, price, kind} = item;
     const label = isNew ? <div>Новый</div> : null;
     return (

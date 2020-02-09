@@ -1,48 +1,34 @@
-import React, { FC, Fragment, useEffect, useState } from 'react';
-import { Catalog, CatalogItem, Filter } from "./views";
-import { BasketService, CatalogService } from "./services";
-import { IPony } from "./entities";
-import { Pagination } from "./components/pagination";
-import { ICatalog } from "./entities/ICatalog";
+import React, { FC, useState } from 'react';
+import { Basket, Catalog, Filter } from './views';
+import { BasketService, CatalogService } from './services';
+import { AppProvider } from './AppContext';
+import { Modal } from './components/modal';
 
 const catalogService = new CatalogService();
 const basketService = new BasketService();
 
-const ITEMS_LIMIT = 20;
-
 export const App: FC = () => {
-    const [content, setContent] = useState<ICatalog<IPony>>({items: [], count: 0});
-    const [page, setPage] = useState(0);
     const [filters, setFilters] = useState({});
-    const {items, count} = content;
-
-    useEffect(() => {
-        setContent(catalogService.getListData({limit: ITEMS_LIMIT, page}, filters));
-    }, [page, filters]);
+    const [basketModal, changeBasketModal] = useState(false);
+    const [filterModal, changeFilterModal] = useState(false);
 
     return (
-        <div className="App">
-            <header>
-                <span>Корзина</span>
-                <span>Фильтры</span>
-            </header>
+        <div className='App'>
+            <AppProvider value={{basketService, catalogService}}>
+                <header>
+                    <button onClick={() => changeBasketModal(true)}>Корзина</button>
+                    <button onClick={() => changeFilterModal(true)}>Фильтры</button>
+                </header>
 
-            <Filter onSubmit={setFilters} colors={catalogService.getColors()} kinds={catalogService.getKinds()}/>
+                <Catalog filters={filters}/>
+                <Modal visible={basketModal} onClose={() => changeBasketModal(false)}>
+                    <Basket/>
+                </Modal>
 
-            <Catalog
-                items={items}
-                render={(item: IPony) =>
-                    <Fragment>
-                        <CatalogItem item={item}/>
-                        <div onClick={() => basketService.append(item)}><strong>В корзину</strong></div>
-                    </Fragment>
-                }
-            />
-            <Pagination
-                step={ITEMS_LIMIT}
-                totalCount={count}
-                onChangePage={setPage}
-            />
+                <Modal visible={filterModal} onClose={() => changeFilterModal(false)}>
+                    <Filter onSubmit={setFilters} colors={catalogService.getColors()} kinds={catalogService.getKinds()}/>
+                </Modal>
+            </AppProvider>
         </div>
     );
 };

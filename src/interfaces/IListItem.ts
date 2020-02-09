@@ -1,4 +1,5 @@
-export interface IPony {
+export interface IListItem {
+    id: number;
     name: string;
     color: number;
     kind: number;

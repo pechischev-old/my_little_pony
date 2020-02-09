@@ -1,4 +1,4 @@
-import { IItem } from "../entities";
+import { IItem } from '../interfaces';
 const kinds = require('./mocks/kinds.json');
 
 export class KindRepository {

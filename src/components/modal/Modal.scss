@@ -1,0 +1,84 @@
+@mixin fixedPosition() {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    z-index: 1100;
+    min-width: 480px;
+    min-height: 240px;
+
+    &-layout {
+        @include fixedPosition();
+        @include square(100%);
+
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+
+        &__overlay {
+            @include fixedPosition();
+            @include square(100%);
+
+            z-index: -1;
+            background: none;
+            opacity: 0;
+        }
+
+        &[data-hidden=false] {
+            display: flex !important;
+
+            .modal-layout__overlay {
+                background: #000000;
+                opacity: 0.8;
+            }
+        }
+
+        &[data-hidden=true] {
+            display: none !important;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__content {
+        flex: 1;
+        padding: 24px;
+        display: flex;
+    }
+
+
+
+    &__close {
+        @include square(44px);
+
+        z-index: 1300;
+        cursor: pointer;
+        background: none;
+        border: none;
+        display: flex;
+        padding: 0;
+        margin: 10px 10px 0;
+    }
+
+    &__title {
+        padding: 0 24px;
+        z-index: 1200;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        font-weight: 700;
+    }
+}

@@ -1,4 +1,4 @@
-import { IItem } from "../entities";
+import { IItem } from '../interfaces';
 const colors = require('./mocks/colors.json');
 
 export class ColorRepository {

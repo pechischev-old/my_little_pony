@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { IField } from "./IField";
-import { IItem } from "../../entities";
-import { Field } from "react-final-form";
+import React, { FC } from 'react';
+import { IField } from './IField';
+import { IItem } from '../../interfaces';
+import { Field } from 'react-final-form';
 
 interface ISelectField extends IField<number | string> {
     options: IItem[]
