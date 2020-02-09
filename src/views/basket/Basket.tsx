@@ -20,7 +20,7 @@ export const Basket: FC<IBasketProps> = ({removeFromBasket, items}) => {
 
     return (
         <div className={'basket'}>
-            {!items.length ? 'Ваша корзина пуста' : (
+            {!items.length ? <div>Ваша корзина пуста</div> : (
                 <Fragment>
                     <List
                         items={content.items}

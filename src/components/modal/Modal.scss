@@ -57,9 +57,8 @@
         flex: 1;
         padding: 24px;
         display: flex;
+        flex-direction: column;
     }
-
-
 
     &__close {
         @include square(44px);

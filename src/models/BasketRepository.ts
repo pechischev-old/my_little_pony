@@ -25,6 +25,11 @@ export class BasketRepository {
         this.save();
     }
 
+    removeAll() {
+        this.items = [];
+        this.save();
+    }
+
     getItems(): IListItem[] {
         return this.items;
     }

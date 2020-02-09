@@ -12,6 +12,10 @@ export class BasketService {
         this.repository.remove(id);
     }
 
+    clear() {
+        this.repository.removeAll();
+    }
+
     getItems() {
         return this.repository.getItems();
     }

@@ -1,0 +1,98 @@
+.alert {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    height: 50px;
+    width: 325px;
+    display: flex;
+
+    > span {
+
+        line-height: 24px;
+        margin: auto;
+        cursor: default;
+    }
+
+    &[data-type="none"] {
+        background-color: rgba(41, 45, 64, 0.9);
+
+        > span {
+            color: #ffffff;
+        }
+    }
+
+    &[data-type="negative"] {
+        background-color: #FFE6E6;
+
+        > span {
+            color: #EB5757;
+        }
+    }
+
+    &[data-type="positive"] {
+        background-color: #DAF7E4;
+
+        > span {
+            color: #00BF40;
+        }
+    }
+
+    &[data-type="neutral"] {
+        background-color: #E4EAF7;
+
+        > span {
+            color: #00077B;
+        }
+    }
+
+    .icon {
+        $icon-size: 44px;
+
+        width: $icon-size;
+        height: $icon-size;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "";
+        opacity: 0;
+        margin: 3px;
+        cursor: pointer;
+    }
+
+    &[data-open=true] {
+        animation: 0.25s dataOpen ease-in-out;
+        margin-top: 0;
+        opacity: 1;
+    }
+
+    &[data-open=false] {
+        animation: 0.25s dataClose ease-in-out;
+        margin-top: -40px;
+        opacity: 0;
+    }
+}
+
+@keyframes dataOpen {
+    from {
+        margin-top: -40px;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes dataClose {
+    from {
+        margin-top: 0;
+        opacity: 1;
+    }
+
+    to {
+        margin-top: -40px;
+        opacity: 0;
+    }
+}
