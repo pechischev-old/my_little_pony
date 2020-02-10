@@ -36,7 +36,7 @@ export const Catalog: FC<ICatalogProps> = ({filters, appendToBasket}) => {
                                 </Fragment>
                             }
                         />
-                        < Pagination
+                        <Pagination
                             step={ITEMS_LIMIT}
                             totalCount={count}
                             onChangePage={setPage}
